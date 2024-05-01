@@ -32,7 +32,16 @@ pipeline {
                 """
             }
         }
+        stage('Build') {
+            steps {
+                sh """
+                    ls -la
+                    zip -q -r catalogue2.zip ./* -x ".git" -x "*.zip"
+                    ls -ltr
 
+                """
+            }
+        }
         stage('Test') {
             steps {
                  echo "this is testing stage"
@@ -50,6 +59,7 @@ pipeline {
     post {
         always {
             echo "I will always say Hello"
+            deleteDir()
         }
         failure {
             echo "I will say Hello only pipeline fails"
