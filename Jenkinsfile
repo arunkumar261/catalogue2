@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh """
                     ls -la
-                    zip -q -r catalogue2.zip ./* -x ".git" -x "*.zip"
+                    zip -q -r catalogue.zip ./* -x ".git" -x "*.zip"
                     ls -ltr
 
                 """
@@ -51,12 +51,12 @@ pipeline {
                  nexusUrl: "${nexusURL}",
                  groupId: 'com.roboshop',
                  version: "${packageVersion}",
-                 repository: 'catalogue2',
+                 repository: 'catalogue',
                  credentialsId: 'nexus-auth',
                  artifacts: [
-                        [artifactId: 'catalogue2',
+                        [artifactId: 'catalogue',
                         classifier: '',
-                        file: 'catalogue2.zip',
+                        file: 'catalogue.zip',
                         type: 'zip']
                     ]
                 )
