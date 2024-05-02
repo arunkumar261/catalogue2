@@ -77,7 +77,6 @@ pipeline {
 
         stage('trigger catalogue-deploy2 pipeline') {
             steps {
-                
                 build job: 'catalogue-deploy2', wait: true,
                 parameters: [
                     string(name: 'version', value: "${packageVersion}"),
@@ -85,6 +84,8 @@ pipeline {
                 ]
             }
         }
+
+        
     }
 
     post {
