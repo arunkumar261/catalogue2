@@ -13,7 +13,7 @@ const logger = pino({
 const expLogger = expPino({
     logger: logger
 });
-//adding for version change and automatic deployment
+//adding for version change and automatic deployment in jenkins pipeline
 // MongoDB
 var db;
 var collection;
