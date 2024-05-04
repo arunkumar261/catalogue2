@@ -33,6 +33,11 @@ pipeline {
                 """
             }
         }
+         stage('unit test') {
+            steps {
+                 echo "this is testing stage"
+            }
+        }
         stage('Build') {
             steps {
                 sh """
@@ -62,20 +67,7 @@ pipeline {
                 )
             }
         }
-        stage('Test') {
-            steps {
-                 echo "this is testing stage"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                 sh """
-                 echo "Here im writing shell script"
-                """
-            }
-        }
-
-        stage('trigger catalogue-deploy2 pipeline') {
+        stage('trigger catalogue-deploy2 pipeline once ci success yi.e., deploy stage') {
             steps {
                 build job: 'catalogue-deploy2', wait: true,
                 parameters: [

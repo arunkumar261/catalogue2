@@ -13,7 +13,7 @@ const logger = pino({
 const expLogger = expPino({
     logger: logger
 });
-//adding for version change and automatic deployment in jenkins pipeline
+//adding for version change and automatic deployment in jenkins pipeline without username and password
 // MongoDB
 var db;
 var collection;
