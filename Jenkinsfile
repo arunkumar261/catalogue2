@@ -15,6 +15,12 @@ pipeline {
         disableConcurrentBuilds()
     }
 
+     parameters {
+        booleanParam(name: 'Deploy', defaultValue: 'false', description: 'Toggle the value')
+        
+    }
+
+
     stages {
         stage('Get the version') {
             steps {
@@ -33,9 +39,16 @@ pipeline {
                 """
             }
         }
-         stage('unit test') {
+        stage('unit test') {
             steps {
                  echo "this is testing stage"
+            }
+        }
+        stage('sonar-scan') {
+            steps {
+                 sh """
+                    sonar-scanner
+                 """
             }
         }
         stage('Build') {
@@ -68,6 +81,12 @@ pipeline {
             }
         }
         stage('trigger catalogue-deploy2 pipeline once ci success yi.e., deploy stage') {
+
+            when {
+                expression {
+                    params.Deploy == 'true'
+                }
+            }
             steps {
                 build job: 'catalogue-deploy2', wait: true,
                 parameters: [
