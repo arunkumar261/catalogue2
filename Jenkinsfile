@@ -1,10 +1,10 @@
 pipeline {
-    agent {
-        node {
-            label 'Agent-2  '
-        }
-    }
-
+    // agent {
+    //     node {
+    //         label 'Agent-2  '
+    //     }
+    // }
+    agent any
     environment {
         packageVersion = ''
         nexusURL = '172.31.25.31:8081'
