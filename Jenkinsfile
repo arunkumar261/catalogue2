@@ -97,7 +97,7 @@ pipeline {
 
         
     }
-
+//post always executes
     post {
         always {
             echo "I will always say Hello"
