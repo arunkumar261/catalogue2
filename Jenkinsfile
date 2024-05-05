@@ -44,13 +44,13 @@ pipeline {
                  echo "this is testing stage"
             }
         }
-        stage('Sonar-scan') {
-            steps {
-                 sh """
-                    sonar-scanner
-                 """
-            }
-        }
+        // stage('Sonar-scan') {
+        //     steps {
+        //          sh """
+        //             sonar-scanner
+        //          """
+        //     }
+        // }
         stage('Build') {
             steps {
                 sh """
