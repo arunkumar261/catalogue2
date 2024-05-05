@@ -97,7 +97,7 @@ pipeline {
 
         
     }
-//post always executes
+//post always executes even if success or failed
     post {
         always {
             echo "I will always say Hello"
