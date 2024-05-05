@@ -44,7 +44,7 @@ pipeline {
                  echo "this is testing stage"
             }
         }
-        stage('sonar-scan') {
+        stage('Sonar-scan') {
             steps {
                  sh """
                     sonar-scanner
